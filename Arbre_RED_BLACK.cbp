@@ -32,6 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Arbre_RED_BLACK.cbp" />
+		<Unit filename="Arbre_RED_BLACK.cpp" />
+		<Unit filename="Arbre_RED_BLACK.depend" />
+		<Unit filename="Arbre_RED_BLACK.h" />
+		<Unit filename="Arbre_RED_BLACK.layout" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

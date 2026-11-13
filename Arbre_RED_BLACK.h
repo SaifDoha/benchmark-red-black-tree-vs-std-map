@@ -41,7 +41,6 @@ public:
     bool rechercher(int valeur);
     void supprimer(int valeur);
     void afficher();
-
     long long getRotationsGauche() const {
         return nbRotationsGauche;
     }
@@ -61,26 +60,23 @@ public:
     long long getNbChangementsCouleur() const {
         return nbChangementsCouleur;
     }
+    int rechercherMinimum() const;
+int rechercherMaximum() const;
 
 private:
 
     Noeud* createNoeud(int valeur);
-
     void changerCouleur(Noeud* n, Color nouvelleCouleur);
-
     void rotateLeft(Noeud* x);
     void rotateRight(Noeud* x);
-
     void fixInsert(Noeud* z);
     void fixDelete(Noeud* x, Noeud* parent, bool xEstGauche);
-
     Noeud* chercherNoeud(int valeur);
     Noeud* minimum(Noeud* n);
-
     void transplant(Noeud* u, Noeud* v);
-
     void libererRec(Noeud* n);
     void afficherRec(Noeud* n, int espace);
+
 };
 
 #endif

@@ -1,68 +1,42 @@
-
 #include <iostream>
 #include "Arbre_RED_BLACK.h"
 
 using namespace std;
 
-// ==================== CREATION NOEUD ====================
-
 Noeud* RedBlackTree::createNoeud(int valeur) {
-
     Noeud *n = new Noeud;
-
     n->data = valeur;
     n->color = RED;
     n->left = nullptr;
     n->right = nullptr;
     n->parent = nullptr;
-
     return n;
 }
 
-// ==================== CHANGEMENT DE COULEUR ====================
-
-void RedBlackTree::changerCouleur(
-    Noeud* n,
-    Color nouvelleCouleur
-) {
-
+void RedBlackTree::changerCouleur(Noeud* n,Color nouvelleCouleur) {
     if (n != nullptr && n->color != nouvelleCouleur) {
-
         n->color = nouvelleCouleur;
-
         nbChangementsCouleur++;
     }
 }
 
-// ==================== ROTATION GAUCHE ====================
-
 void RedBlackTree::rotateLeft(Noeud *x) {
-
     nbRotationsGauche++;
-
     Noeud *y = x->right;
-
     x->right = y->left;
-
     if (y->left != nullptr)
         y->left->parent = x;
-
     y->parent = x->parent;
-
     if (x->parent == nullptr)
         racine = y;
-
     else if (x == x->parent->left)
         x->parent->left = y;
-
     else
         x->parent->right = y;
 
     y->left = x;
     x->parent = y;
 }
-
-// ==================== ROTATION DROITE ====================
 
 void RedBlackTree::rotateRight(Noeud *x) {
 
@@ -565,3 +539,27 @@ void RedBlackTree::afficher() {
 
     cout << endl;
 }
+int RedBlackTree::rechercherMinimum() const {
+    if (racine == nullptr)
+        return 0;
+
+    Noeud* courant = racine;
+
+    while (courant->left != nullptr)
+        courant = courant->left;
+
+    return courant->data;
+}
+
+int RedBlackTree::rechercherMaximum() const {
+    if (racine == nullptr)
+        return 0;
+
+    Noeud* courant = racine;
+
+    while (courant->right != nullptr)
+        courant = courant->right;
+
+    return courant->data;
+}
+
